@@ -10,9 +10,10 @@ namespace Inmobiliaria.Models
     {
         public int OfertaId { get; set; }
         public float Precio { get; set; }
-
-        public Vivienda Vivienda { get; set; }
-
-        public Operacion Operacion { get; set; }
+        public string Moneda { get; set; }
+        public int ViviendaId { get; set; }
+        public virtual Vivienda Vivienda { get; set; }
+        public int OperacionId { get; set; }
+        public virtual Operacion Operacion { get; set; }
     }
 }

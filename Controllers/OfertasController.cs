@@ -13,6 +13,7 @@ namespace Inmobiliaria.Controllers
     [ApiController]
     public class OfertasController : ControllerBase
     {
+        //readonly es casi similar a usar Const, este se puede inicializar en los constructores
         private readonly InmobiliariaContext _context;
 
         public OfertasController(InmobiliariaContext context)
@@ -42,7 +43,9 @@ namespace Inmobiliaria.Controllers
             {
                 return NotFound();
             }
-
+            //obtengo los registros vivienda y operacion relacionados a oferta para q se vea en el registro oferta, sino muestra null
+            oferta.Vivienda = _context.Vivienda.Find(oferta.ViviendaId);
+            oferta.Operacion = _context.Operacion.Find(oferta.OperacionId);
             return oferta;
         }
 
